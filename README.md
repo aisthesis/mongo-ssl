@@ -13,4 +13,4 @@ MongoDB configuration
 
 PyMongo
 --
-Example in `connect.py`.
+Example in `./src/connect.py`.
