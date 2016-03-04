@@ -36,15 +36,18 @@ authority and a file `file.srl`, which can be any 2-digit number,
 are now used to generate the `server.pem` file, which the server
 will use for authentication:
 
-    $ openssl x509 -req -in server.req -CA ca.pem -CAkey privkey.pem -CAserial file.srl -out server.pem -days 3650
+    $ openssl x509 -req -in server.req -CA ca.pem -CAkey privkey.pem -CAserial file.srl -out server.crt -days 3650
 
-You will be prompted to enter the password you used when creating the certificate authority.
+You will be prompted to enter the password you used when creating the certificate authority. Finally:
+
+    $ cat server.key server.crt > server.pem
 
 ### Generate key pair for the client
 
     $ openssl genrsa -out client.key 2048
     $ openssl req -key client.key -new -out client.req
-    $ openssl x509 -req -in client.req -CA ca.pem -CAkey privkey.pem -CAserial file.srl -out client.pem -days 3650
+    $ openssl x509 -req -in client.req -CA ca.pem -CAkey privkey.pem -CAserial file.srl -out client.crt -days 3650
+    $ cat client.key client.crt > client.pem
 
 ### Miscellaneous
 You can verify the expiration of any of the `.pem` files you have created with:
