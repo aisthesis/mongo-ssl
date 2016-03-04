@@ -1,2 +1,5 @@
 *.swp
 *.pyc
+*.pem
+*.key
+*.req
