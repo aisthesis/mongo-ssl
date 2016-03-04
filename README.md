@@ -46,9 +46,30 @@ You will be prompted to enter the password you used when creating the certificat
     $ openssl req -key client.key -new -out client.req
     $ openssl x509 -req -in client.req -CA ca.pem -CAkey privkey.pem -CAserial file.srl -out client.pem -days 3650
 
+### Miscellaneous
+You can verify the expiration of any of the `.pem` files you have created with:
+
+    $ openssl x509 -enddate -noout -in file.pem
+
+I've left the keys here within the repo for demonstration purposes. In practice, you'll
+want to put them in a more appropriate location, such as `~/.ssl`, and rename
+in a manner suitable to your setup.
+
 MongoDB configuration
 --
-1. Make sure mongo is stopped.
+Make sure mongo is stopped, then edit `mongod.conf`. On Linux you will
+likely find it at `/etc/mongod.conf`, and mongo will use it by default.
+On Mac, you should find it (or create it) at `/usr/local/etc/mongod.conf`.
+On Mac, you'll also have to specify the config file on start with
+`mongod --config /usr/local/etc/mongod.conf`.
+
+For testing purposes on OS X or Debian, you can run mongo using the
+configuration files provided here in `./osx` and `./debian`. Note
+that I have changed the port number from the default `27017` to `27018`
+so that you can easily verify that you're actually using that configuration
+rather than your system defaults. If you copy over these files, you will
+want to change the port back to the defaults or to whatever port
+you use for mongo.
 
 PyMongo
 --
