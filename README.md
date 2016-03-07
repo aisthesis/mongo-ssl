@@ -11,6 +11,8 @@ In the following example, I have set the expiration to 10
 years by using `-days 3650`. For a shorter expiration, choose
 a lower value for the `-days` option.
 
+Further details [here](https://jamielinux.com/docs/openssl-certificate-authority/index.html)
+
 ### Generate a certificate authority
 
     $ cd ssl
