@@ -3,6 +3,18 @@ mongo-ssl
 Configure a MongoDB server and a PyMongo client
 for SSL/TLS using a self-signed certificate.
 
+Further ideas
+--
+- [intro to TLS](https://blog.talpor.com/2015/07/ssltls-certificates-beginners-tutorial/)
+- [example from Mongo documentation](http://api.mongodb.org/python/current/examples/authentication.html)
+- [mongo shell SSL tutorial](https://docs.mongodb.org/v3.0/tutorial/configure-ssl-clients/)
+- [python Nginx SSL](http://stackoverflow.com/questions/33504746/doing-ssl-client-authentication-is-python?rq=1)
+- [generic tutorial](http://www.devsec.org/info/ssl-cert.html)
+- [another generic tutorial](http://www.akadia.com/services/ssh_test_certificate.html)
+- [x509 tutorial](http://www.ipsec-howto.org/x595.html)
+- [self-signed cert tutorial](https://www.madboa.com/geek/openssl/#how-do-i-generate-a-self-signed-certificate)
+- [Postfix TLS support](http://www.postfix.org/TLS_README.html#quick-start)
+
 Creating keys, certificates and a certificate authority
 --
 Good overview [here](http://dst.lbl.gov/~boverhof/openssl_certs.html).
