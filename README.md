@@ -13,6 +13,7 @@ Further ideas
 - [another generic tutorial](http://www.akadia.com/services/ssh_test_certificate.html)
 - [x509 tutorial](http://www.ipsec-howto.org/x595.html)
 - [self-signed cert tutorial](https://www.madboa.com/geek/openssl/#how-do-i-generate-a-self-signed-certificate)
+- [cert validation details](http://stackoverflow.com/questions/27929357/ssl-understanding-self-signed-certificates?rq=1)
 - [Postfix TLS support](http://www.postfix.org/TLS_README.html#quick-start)
 
 Creating keys, certificates and a certificate authority
