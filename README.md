@@ -26,6 +26,13 @@ a lower value for the `-days` option.
 
 Further details [here](https://jamielinux.com/docs/openssl-certificate-authority/index.html)
 
+### General requirements
+For the certificate authority, the client keys and the server keys, you are prompted to enter
+various information fields. It is important that both server and client side have the *same*
+information everywhere except for the `Common Name (e.g. server FQDN or YOUR name)` field.
+Client and server must have *different* entries in that field, such as `server.com` and
+`client.com`.
+
 ### Generate a certificate authority
 
     $ cd ssl
@@ -45,7 +52,8 @@ permissions as suggested [here](http://stackoverflow.com/questions/94445/using-o
     $ openssl genrsa -out server.key 2048
     $ openssl req -key server.key -new -out server.req
 
-You will again be prompted to enter your information. The files
+You will again be prompted to enter your information. Be sure to enter a
+`Common Name` (such as `server.com`) that will distinguish server from client. The files
 `server.key` and `server.req`, together with your certificate
 authority and a file `file.srl`, which can be any 2-digit number,
 are now used to generate the `server.pem` file, which the server
@@ -61,6 +69,11 @@ You will be prompted to enter the password you used when creating the certificat
 
     $ openssl genrsa -out client.key 2048
     $ openssl req -key client.key -new -out client.req
+
+When prompted for information, be sure to enter exactly what you entered for the server except for the
+`Common Name` field, which cannot be the same for client and server. For the client, you can enter
+`client.com`, for example.
+
     $ openssl x509 -req -in client.req -CA ca.pem -CAkey privkey.pem -CAserial file.srl -out client.crt -days 3650
     $ cat client.key client.crt > client.pem
 
