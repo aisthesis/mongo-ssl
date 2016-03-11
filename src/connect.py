@@ -34,6 +34,7 @@ def test():
         coll = db.get_collection(constants.COLLECTION)
         bulk = coll.initialize_unordered_bulk_op()
         bulk.insert({'val': random.randrange(1000000)})
+        print('record queued for insertion')
         result = bulk.execute()
     except BulkWriteError:
         print('ERROR writing to mongo!')
