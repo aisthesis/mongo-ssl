@@ -25,8 +25,8 @@ def test():
             constants.MONGO_CLIENT['port'],
             ssl=True,
             ssl_certfile=ssl_certfile,
-            ssl_cert_reqs=ssl.CERT_REQUIRED,
-            ssl_ca_certs=ssl_ca_certs
+            ssl_ca_certs=ssl_ca_certs,
+            ssl_match_hostname=False
             )
     print('connection opened')
     try:
